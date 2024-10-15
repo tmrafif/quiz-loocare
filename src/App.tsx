@@ -1,16 +1,24 @@
 import React from "react";
 import QuestionCard from "./components/QuestionCard";
-import QUESTION_DATA from "./data/quiz-data";
+import QUESTION_DATA, { QuestionData } from "./data/quiz-data";
+
+type AnswerObject = {
+    question: string;
+    answer: string;
+    correctAnswer: string;
+    correct: boolean;
+};
 
 const App = () => {
     // const [loading, setLoading] = React.useState(false);
-    const [questions, setQuestions] = React.useState(QUESTION_DATA);
+    const [questions, setQuestions] = React.useState<QuestionData>([]);
     const [number, setNumber] = React.useState(0);
-    const [userAnswers, setUserAnswers] = React.useState([]);
+    const [userAnswers, setUserAnswers] = React.useState<AnswerObject[]>([]);
     const [score, setScore] = React.useState(0);
     const [gameOver, setGameOver] = React.useState(true);
 
     const startQuiz = () => {
+        setQuestions(QUESTION_DATA);
         setGameOver(false);
         setScore(0);
         setUserAnswers([]);
@@ -25,7 +33,14 @@ const App = () => {
             if (correct) {
                 setScore((prevScore) => prevScore + 1);
             }
-            setUserAnswers((prevAnswers) => [...prevAnswers, answer]);
+
+            const answerObject = {
+                question: questions[number].question,
+                answer,
+                correctAnswer: questions[number].correct_answer,
+                correct,
+            }
+            setUserAnswers((prevAnswers) => [...prevAnswers, answerObject]);
         }
     };
 

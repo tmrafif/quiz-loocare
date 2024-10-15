@@ -30,14 +30,14 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                 Question: {questionNr} / {totalQuestions}
             </p>
             <div className="bg-blue-500 text-center p-4 my-9 border-4 border-blue-900">
-                <p>{question}</p>
+                <p className="md:text-base text-xs">{question}</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-4">
                 {answers.map((answer, index) => (
                     <button
                         key={index}
-                        className="bg-blue-500 text-center p-4 border-4 border-blue-900"
+                        className="md:text-base text-xs bg-blue-500 text-center p-4 border-4 border-blue-900"
                         disabled={userAnswer ? true : false}
                         value={answer}
                         onClick={callback}

@@ -1,4 +1,10 @@
-const QUESTION_DATA = [
+export type QuestionData = {
+    question: string;
+    answers: string[];
+    correct_answer: string;
+}[];
+
+const QUESTION_DATA: QuestionData = [
     {
         question: "Apa contoh toilet kotor?",
         answers: [
@@ -40,7 +46,8 @@ const QUESTION_DATA = [
         correct_answer: "B dan C benar",
     },
     {
-        question: "Mengapa penting untuk menjaga kebersihan toilet di tempat umum?",
+        question:
+            "Mengapa penting untuk menjaga kebersihan toilet di tempat umum?",
         answers: [
             "Agar terlihat mewah",
             "Supaya mengundang serangga",
