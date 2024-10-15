@@ -58,7 +58,7 @@ const App = () => {
             {gameOver ? (
                 <button className="h-12" onClick={startQuiz}>
                     <img
-                        src="/src/assets/start-button.png"
+                        src="/start-button.png"
                         alt="Start"
                         className="h-full hover:brightness-75"
                     />
@@ -83,7 +83,7 @@ const App = () => {
                     number !== questions.length - 1 ? (
                         <button className="h-12" onClick={nextQuestion}>
                             <img
-                                src="/src/assets/next-button.png"
+                                src="/next-button.png"
                                 alt="Next"
                                 className="h-full hover:brightness-75"
                             />
