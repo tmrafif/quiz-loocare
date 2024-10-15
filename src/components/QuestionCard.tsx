@@ -26,10 +26,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 }) => {
     return (
         <div className="w-full">
-            <p>
-                Question: {questionNr} / {totalQuestions}
-            </p>
-            <div className="bg-blue-500 text-center p-4 my-9 border-4 border-blue-900">
+            <div className="p-2 bg-violet-300 border-violet-900 border-4 object-fit max-w-60 text-center">
+                <p className="text-xs">
+                    Question: {questionNr} / {totalQuestions}
+                </p>
+            </div>
+            <div className="bg-violet-300 text-center p-6 my-9 border-4 border-violet-900 h-32">
                 <p className="md:text-base text-xs">{question}</p>
             </div>
 
@@ -37,7 +39,17 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                 {answers.map((answer, index) => (
                     <button
                         key={index}
-                        className="md:text-base text-xs bg-blue-500 text-center p-4 border-4 border-blue-900"
+                        className={`md:text-base text-xs ${
+                            userAnswer
+                                ? userAnswer.answer === answer 
+                                    ? userAnswer.correct
+                                        ? "bg-green-300"
+                                        : "bg-red-300"
+                                    : userAnswer.correctAnswer === answer
+                                        ? "bg-green-300"
+                                        : "bg-violet-300"
+                                : "bg-violet-300"
+                        } text-center p-4 border-4 border-violet-900`}
                         disabled={userAnswer ? true : false}
                         value={answer}
                         onClick={callback}
