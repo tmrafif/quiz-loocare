@@ -29,7 +29,7 @@ const QUESTION_DATA: QuestionData = [
         question: "Cara mencegah bau tidak sedap di toilet adalah dengan ...",
         answers: [
             "Menggunakan pengharum ruangan",
-            "Membersihkan saluran pembuangan setiap minggu",
+            "Membuang sampah sembarangan",
             "Membersihkan saluran pembuangan setiap minggu",
             "Menggunakan permbersih toilet yang mengandung parfum kuat",
         ],
