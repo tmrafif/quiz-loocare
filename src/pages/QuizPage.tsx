@@ -79,12 +79,12 @@ const QuizPage = () => {
                 autoPlay
                 loop
                 ref={musicQuiz}
-                src="/src/assets/music/quiz-sound.mp3"
+                src="/quiz-sound.mp3"
             />
             <audio
                 autoPlay
                 ref={musicComplete}
-                src="/src/assets/music/level-complete.mp3"
+                src="/level-complete.mp3"
             />
             {/* Start Button */}
             {gameOver && (
