@@ -17,6 +17,9 @@ const QuizPage = () => {
     const [score, setScore] = React.useState(0);
     const [gameOver, setGameOver] = React.useState(true);
 
+    const musicQuiz = React.useRef<HTMLAudioElement>(null);
+    const musicComplete = React.useRef<HTMLAudioElement>(null);
+
     const startQuiz = () => {
         setQuestions(QUESTION_DATA);
         setGameOver(false);
@@ -53,13 +56,41 @@ const QuizPage = () => {
         }
     };
 
+    React.useEffect(() => {
+        if (musicQuiz.current && musicComplete.current) {
+            if (gameOver) {
+                musicQuiz.current.currentTime = 0;
+                musicQuiz.current.pause();
+                musicComplete.current.pause();
+                if (userAnswers.length === number + 1) {
+                    musicComplete.current.play();
+                }
+            } else {
+                musicComplete.current.currentTime = 0;
+                musicComplete.current.pause()
+                musicQuiz.current.play();
+            }
+        }
+    }, [gameOver, number, userAnswers]);
+
     return (
         <div className="bg-[url('/src/assets/quiz-background.jpg')] w-full h-screen bg-cover bg-top flex justify-center items-center font-['Press_Start_2P']">
+            <audio
+                autoPlay
+                loop
+                ref={musicQuiz}
+                src="/src/assets/music/quiz-sound.mp3"
+            />
+            <audio
+                autoPlay
+                ref={musicComplete}
+                src="/src/assets/music/level-complete.mp3"
+            />
             {/* Start Button */}
             {gameOver && (
                 <div className="flex flex-col justify-center items-center">
                     {userAnswers.length < number + 1 && (
-                        <p className="md:text-3xl text-xl text-violet-900 pb-4">
+                        <p className="md:text-3xl text-xl text-violet-900 pb-4" >
                             Are you ready?
                         </p>
                     )}
@@ -68,7 +99,9 @@ const QuizPage = () => {
                             <p className="md:text-3xl text-xl text-violet-900 pb-8">
                                 Score: {score} / 100
                             </p>
-                            <p className="md:text-xl text-lg text-violet-900 pb-4">Try again?</p>
+                            <p className="md:text-xl text-lg text-violet-900 pb-4">
+                                Try again?
+                            </p>
                         </>
                     )}
                     <button className="h-12" onClick={startQuiz}>
@@ -111,20 +144,6 @@ const QuizPage = () => {
                 </div>
             )}
         </div>
-
-        // <div className="bg-[url('/src/assets/quiz-background.jpg')] w-full h-screen bg-cover bg-top flex flex-col justify-center items-center font-['Press_Start_2P']">
-        //             <h1 className="text-4xl text-violet-900">
-        //                 Score: {score} / 100
-        //             </h1>
-        //             <p className="pt-12 pb-4 text-2xl text-violet-900">Try Again?</p>
-        //             <button className="h-12" onClick={startQuiz}>
-        //                 <img
-        //                     src="/start-button.png"
-        //                     alt="Start"
-        //                     className="h-full hover:brightness-75"
-        //                 />
-        //             </button>
-        //         </div>
     );
 };
 
