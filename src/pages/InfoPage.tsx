@@ -96,6 +96,14 @@ const InfoPage = () => {
                         itu, jika kita memiliki toilet yang bersih kita dapat
                         terhindar dari bakteri dan virus tersebut.
                     </p>
+                    <a
+                        href="https://www.cr8washrooms.co.uk/blog/the-importance-of-clean-and-inviting-toilets-in-schools#:~:text=Good%20washrooms%20promote%20hygiene%20and,a%20safer%20environment%20for%20everyone."
+                        target="_blank"
+                    >
+                        <button className="w-32 h-12 mt-4 text-lg rounded-md bg-primary hover:brightness-75">
+                            More
+                        </button>
+                    </a>
                 </InfoSection>
             )}
 
@@ -123,6 +131,14 @@ const InfoPage = () => {
                         <li>Kolera</li>
                         <li>Kanker Serviks</li>
                     </ul>
+                    <a
+                        href="https://www.unicef.org/wash/hygiene#:~:text=Better%20hygiene%20leads%20to%20better%20health%2C%20confidence%20and%20overall%20growth.&text=Good%20hygiene%20is%20critical%20for,resulting%20in%20better%20learning%20outcomes."
+                        target="_blank"
+                    >
+                        <button className="w-32 h-12 mt-4 text-lg rounded-md bg-primary hover:brightness-75">
+                            More
+                        </button>
+                    </a>
                 </InfoSection>
             )}
 
@@ -166,6 +182,14 @@ const InfoPage = () => {
                             kering.
                         </li>
                     </ul>
+                    <a
+                        href="https://www.cleanipedia.com/za/bathroom-cleaning/tips-for-keeping-school-restrooms-clean.html"
+                        target="_blank"
+                    >
+                        <button className="w-32 h-12 mt-4 text-lg rounded-md bg-primary hover:brightness-75">
+                            More
+                        </button>
+                    </a>
                 </InfoSection>
             )}
         </>
